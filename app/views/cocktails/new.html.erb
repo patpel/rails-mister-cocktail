@@ -1,10 +1,19 @@
-<h1>Cocktails</h1>
+<div class="container">
+<h1><%= @cocktail.name %></h1>
 
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name, label: "Cocktail name" %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-
+<% @cocktail.doses.each do |c| %>
+<div class="dose-description">
+  <%= c.description %> <%= "of " %><%= c.ingredient.name %>
+  </div>
 <% end %>
 
+<%= simple_form_for @cocktail do |f| %>
+<%= f.input :name, label: "Cocktail name" %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "View all cocktails", cocktails_path, class: "btn btn-primary" %>
+</div>
 
 

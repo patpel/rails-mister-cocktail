@@ -2,11 +2,13 @@
   <div class="row">
     <div class="col-lg-12 text-center">
       <h1><%= @cocktail.name %></h1>
-      <%= link_to "Go back", cocktails_path %><br><br>
-      <%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail) %>
-
+      <% @cocktail.doses.each do |c| %>
+      <div class="dose-description">
+      <%= c.description %><%= c.ingredient.name %>
+      </div>
+    <% end %>
+<%= render "doses/form", cocktail: @cocktail, dose: @dose %>
+<%= link_to "View all Cocktails", cocktails_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
-
-
