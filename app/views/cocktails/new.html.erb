@@ -9,11 +9,11 @@
 
 <%= simple_form_for @cocktail do |f| %>
 <%= f.input :name, label: "Cocktail name" %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :photo, as: :file, label: "Add a picture" %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 
-<%= link_to "View all cocktails", cocktails_path, class: "btn btn-primary" %>
+<%= link_to "View all cocktails", cocktails_path, class: "btn btn-primary mt-3" %>
 </div>
 
 

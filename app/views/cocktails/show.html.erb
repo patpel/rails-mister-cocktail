@@ -4,11 +4,15 @@
       <h1><%= @cocktail.name %></h1>
       <% @cocktail.doses.each do |c| %>
       <div class="dose-description">
-      <%= c.description %><%= c.ingredient.name %>
+        <div class="container">
+      <%= c.description %> made with <%= c.ingredient.name %>
+      </div>
       </div>
     <% end %>
+
 <%= render "doses/form", cocktail: @cocktail, dose: @dose %>
-<%= link_to "View all Cocktails", cocktails_path, class: "btn btn-primary" %>
+
+<%= link_to "View all Cocktails", cocktails_path, class: "btn btn-primary mt-3" %>
     </div>
   </div>
 </div>
